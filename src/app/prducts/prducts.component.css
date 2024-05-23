@@ -1,0 +1,11 @@
+.container-table-product{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.container-table-product > table{
+    width: 95%;
+}

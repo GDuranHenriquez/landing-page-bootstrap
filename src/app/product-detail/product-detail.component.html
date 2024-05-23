@@ -1,0 +1,10 @@
+<h1>Detale del product</h1>
+<div *ngIf="product && !loading" class="container-detailproduct">
+    <h1>{{product.name || ''}}</h1>
+    <h3 [ngClass]="{'red': product.price > 5}" [ngStyle]="{'color': color}">{{product.price | currency: 'USD'}}</h3>
+    <h3 *ngIf="product.description">{{product.description}}</h3>
+</div>
+
+<ng-container *ngIf="loading"><i style="color: blue; margin: 0 auto; text-align: center;">Loading information...</i></ng-container>
+
+

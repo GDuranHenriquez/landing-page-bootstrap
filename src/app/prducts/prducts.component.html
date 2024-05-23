@@ -1,0 +1,24 @@
+<p>Cleaning Products:</p>
+
+<div class="container-table-product">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Producto</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Detalle</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of productList">
+        <th scope="row">1{{product.id}}</th>
+        <td>{{product.name}}</td>
+        <td>{{product.price | currency : 'USD'}}</td>
+        <td><button type="button" class="btn btn-outline-primary" [routerLink]="['/products', product.id]">Primary</button></td>
+      </tr>
+      
+    </tbody>
+  </table>
+</div>
+

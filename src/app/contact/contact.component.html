@@ -1,0 +1,47 @@
+<!-- form template no reactivo -->
+<!-- <div class="container-forcontact">
+    <form class="forcontact" #myform="ngForm" (ngSubmit)="enviar()">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" id="name" [(ngModel)] = 'user.name' [ngModelOptions]="{standalone : true}">
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" aria-describedby="emailHelp" [(ngModel)] = 'user.email' [ngModelOptions]="{standalone : true}">
+          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+</div>
+ -->
+
+ <!-- Form reactivo -->
+
+ <div class="container-forcontact">
+    <form class="forcontact" [formGroup]="formcontact" (ngSubmit)="enviar()">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input [ngClass]="{'is-invalid': hasErrors('name', 'required') || hasErrors('name', 'minlength')}" type="text" class="form-control" id="name" formControlName="name">
+          <div  class="text-danger" *ngIf="hasErrors('name', 'required')">
+            Nombre requerido.
+          </div>
+          <div  class="text-danger" *ngIf="hasErrors('name', 'minlength')">
+            Debe tener al menos 3 caracteres.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input [ngClass]="{'is-invalid': hasErrors('email', 'required') || hasErrors('email', 'email')}" type="email" class="form-control" id="email" aria-describedby="emailHelp" formControlName="email">
+          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+          <div  class="text-danger" *ngIf="hasErrors('email', 'email')">
+            Email invalido.
+          </div>
+          <div  class="text-danger" *ngIf="hasErrors('email', 'required')" >
+            Email requerido.
+          </div>
+        </div>
+        
+        <button type="submit" class="btn btn-primary" [disabled]="statusForm()">Submit</button>
+      </form>
+</div>

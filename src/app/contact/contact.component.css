@@ -1,0 +1,12 @@
+.container-forcontact{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.forcontact{
+    width: 90%;
+    max-width: 640px;
+    margin-top: 25px;
+}
