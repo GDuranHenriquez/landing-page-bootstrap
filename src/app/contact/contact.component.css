@@ -10,3 +10,10 @@
     max-width: 640px;
     margin-top: 25px;
 }
+
+.container-dnitype-dni{
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    align-items: end;
+    gap: 10px;
+}

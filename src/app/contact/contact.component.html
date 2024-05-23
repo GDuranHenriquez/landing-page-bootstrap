@@ -31,6 +31,36 @@
           </div>
         </div>
         <div class="mb-3">
+          <label for="lastName" class="form-label">Last name</label>
+          <input [ngClass]="{'is-invalid': hasErrors('lastName', 'required') || hasErrors('lastName', 'minlength')}" type="text" class="form-control" id="lastName" formControlName="lastName">
+          <div  class="text-danger" *ngIf="hasErrors('lastName', 'required')">
+            Last name is required.
+          </div>
+          <div  class="text-danger" *ngIf="hasErrors('lastName', 'minlength')">
+            Debe tener al menos 3 caracteres.
+          </div>
+        </div>
+        
+        <div class="container-dnitype-dni">
+            <div class="mb-3">
+                <label for="typeDni" class="form-label">Type</label>
+                <select class="form-select" id="typeDni" formControlName="typeDni">
+                    <option selected>DNI</option>
+                    <option value="Passport">Passport</option>
+                    <option value="RIF">RIF</option>
+                </select>
+            </div>
+            
+            <div class="mb-3">
+              <label for="dni" class="form-label">{{typeDni}}</label>
+              <input [ngClass]="{'is-invalid': hasErrors('dni', 'required')}" type="text" class="form-control" id="dni" formControlName="dni">
+              <div  class="text-danger" *ngIf="hasErrors('dni', 'required')">
+                {{typeDni}}  is required.
+              </div>
+            </div>
+        </div>
+
+        <div class="mb-3">
           <label for="email" class="form-label">Email</label>
           <input [ngClass]="{'is-invalid': hasErrors('email', 'required') || hasErrors('email', 'email')}" type="email" class="form-control" id="email" aria-describedby="emailHelp" formControlName="email">
           <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
